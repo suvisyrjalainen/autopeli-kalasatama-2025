@@ -1,3 +1,4 @@
+using System.Numerics;
 using UnityEngine;
 
 public class AICar : MonoBehaviour
@@ -11,18 +12,12 @@ public class AICar : MonoBehaviour
 
     public float rotationSpeed = 5f; // AI-Auton kääntymisnopeus
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         // Haetaan waypoints-taulukosta tämänhetkinen kohdepiste (seuraava piste reitillä), jota kohti auto liikkuu
         Transform target = waypoints[currentWaypointIndex];
-        
+
         // Kohteen xz, pidä nykyinen y (ei nouse tai laske )
         Vector3 targetXZ = new Vector3(target.position.x, transform.position.y, target.position.z);
 
@@ -34,6 +29,12 @@ public class AICar : MonoBehaviour
 
         // Käänny pehmeästi (slerp) kohti kohdetta
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
-        
+
+        transform.Translate(direction * speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, target.position) < 2f)
+        {
+            currentWaypointIndex += 1;
+        }
     }
 }
