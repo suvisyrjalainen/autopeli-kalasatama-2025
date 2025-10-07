@@ -1,5 +1,7 @@
-using System.Numerics;
+using Unity.Collections;
 using UnityEngine;
+// using System.Numerics;
+//using Vector3 = UnityEngine.Vector3;
 
 public class AICar : MonoBehaviour
 {
@@ -20,21 +22,20 @@ public class AICar : MonoBehaviour
 
         // Kohteen xz, pidä nykyinen y (ei nouse tai laske )
         Vector3 targetXZ = new Vector3(target.position.x, transform.position.y, target.position.z);
-
         // Suuntavektori kohteeseen (yksikkövektori)
         Vector3 direction = (targetXZ - transform.position).normalized;
 
         // Rotaatio kohti suuntaa
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-
+        
         // Käänny pehmeästi (slerp) kohti kohdetta
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
 
         transform.Translate(direction * speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, target.position) < 2f)
+        if (Vector3.Distance(transform.position, target.position) < 1f)
         {
-            currentWaypointIndex += 1;
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 }
