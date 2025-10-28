@@ -6,13 +6,7 @@ public class PlayerCar : MonoBehaviour
     public float speed = 10f;
 
     //Pelaajan auton kääntymisnopeus
-    public float turnSpeed = 50f;
- 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        Debug.Log("Moi Tää koodi toimii");
-    }
+    public float turnSpeed = 50f;    
 
     // Update is called once per frame
     void Update()
