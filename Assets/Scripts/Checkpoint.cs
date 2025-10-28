@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour
     {
         var id = auto.GetComponent<CarIdentity>();
         Debug.Log("Checkpointtiin " + orderIndex + " osui " + id.car_name);
-        var tarkastaja = auto.GetComponent<CheckpointTarkastus>();
+        var tarkastaja = auto.GetComponent<CheckpointTarkistus>();
         tarkastaja.MarkVisited(orderIndex);
     }
 }
