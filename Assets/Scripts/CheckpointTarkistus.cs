@@ -7,6 +7,8 @@ public class CheckpointTarkistus : MonoBehaviour
     public bool[] visited;
     private int visitedCount;
 
+    public int laps = 0; // Mitä kierrosta ajetaan
+
     void Awake()
     {
         ResetLap();
@@ -16,6 +18,7 @@ public class CheckpointTarkistus : MonoBehaviour
     {
         visited = new bool[checkpointCount];
         visitedCount = 0;
+        laps++; 
     }
 
     public void MarkVisited(int index)
