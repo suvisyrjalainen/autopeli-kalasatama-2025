@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public int lapsToWin = 3;
 
+    public bool gameRunning = true;
+
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }

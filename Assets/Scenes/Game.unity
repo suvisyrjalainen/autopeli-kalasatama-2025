@@ -3399,8 +3399,8 @@ MonoBehaviour:
   - {fileID: 1957775774}
   - {fileID: 2523008}
   - {fileID: 1616868529}
-  speed: 12
-  rotationSpeed: 6
+  speed: 10
+  rotationSpeed: 5.5
 --- !u!1 &1844532085
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,6 +3433,7 @@ MonoBehaviour:
   lapText: {fileID: 683317692}
   playerCT: {fileID: 2122891507}
   lapsToWin: 3
+  gameRunning: 1
 --- !u!4 &1844532087
 Transform:
   m_ObjectHideFlags: 0
@@ -3813,7 +3814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa55d1c3f9c7d84a970ff39e5fab605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 12
   turnSpeed: 50
 --- !u!4 &2122891503 stripped
 Transform:

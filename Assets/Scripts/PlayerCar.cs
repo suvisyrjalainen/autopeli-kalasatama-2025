@@ -11,16 +11,18 @@ public class PlayerCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Luetaan pystysuuntainen liike
-        float move = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        //Luetaan vaakasuuntainen liike
-        float turn = Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime;
+        if (GameManager.Instance.gameRunning)
+        {
+            //Luetaan pystysuuntainen liike
+            float move = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            //Luetaan vaakasuuntainen liike
+            float turn = Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime;
 
-        // liikutetaan autoa eteen tai taakse Z-suunnassa ("forward" Unityssa)
-        transform.Translate(Vector3.forward * move);
+            // liikutetaan autoa eteen tai taakse Z-suunnassa ("forward" Unityssa)
+            transform.Translate(Vector3.forward * move);
 
-        //Käännetään autoa vasemmalle tai oikealle Y-akselin ympäri ("up" Unityssa)
-        transform.Rotate(Vector3.up * turn);
-
+            //Käännetään autoa vasemmalle tai oikealle Y-akselin ympäri ("up" Unityssa)
+            transform.Rotate(Vector3.up * turn);
+        }
     }
 }
