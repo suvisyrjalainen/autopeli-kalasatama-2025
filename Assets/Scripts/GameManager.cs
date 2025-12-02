@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // void Start()
+    // {
+    //     lapText = GameObject.Find("LapText").GetComponent<TextMeshProUGUI>();
+    // }
+
     // Update is called once per frame
     void Update()
     {
